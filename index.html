@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب قيمة المقاومة بالألوان</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>حساب قيمة المقاومة بالألوان</h1>
+
+        <!-- Table Section -->
+        <div class="table-section">
+            <table>
+                <tr>
+                    <th>اللون</th>
+                    <th>رقم اللون</th>
+                    <th>المضاعف</th>
+                    <th>نسبة التفاوت</th>
+                </tr>
+                <tr>
+                    <td>أسود</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>±1%</td>
+                </tr>
+                <tr>
+                    <td>بني</td>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>±1%</td>
+                </tr>
+                <tr>
+                    <td>أحمر</td>
+                    <td>2</td>
+                    <td>100</td>
+                    <td>±2%</td>
+                </tr>
+                <tr>
+                    <td>برتقالي</td>
+                    <td>3</td>
+                    <td>1000</td>
+                    <td>±0.5%</td>
+                </tr>
+                <tr>
+                    <td>أصفر</td>
+                    <td>4</td>
+                    <td>10000</td>
+                    <td>±0.25%</td>
+                </tr>
+                <tr>
+                    <td>أخضر</td>
+                    <td>5</td>
+                    <td>100000</td>
+                    <td>±0.1%</td>
+                </tr>
+                <tr>
+                    <td>أزرق</td>
+                    <td>6</td>
+                    <td>1000000</td>
+                    <td>±0.05%</td>
+                </tr>
+                <tr>
+                    <td>بنفسجي</td>
+                    <td>7</td>
+                    <td>10000000</td>
+                    <td>±0.1%</td>
+                </tr>
+                <tr>
+                    <td>رمادي</td>
+                    <td>8</td>
+                    <td>100000000</td>
+                    <td>±0.05%</td>
+                </tr>
+                <tr>
+                    <td>أبيض</td>
+                    <td>9</td>
+                    <td>1000000000</td>
+                    <td>±0.01%</td>
+                </tr>
+                <tr>
+                    <td>ذهبي</td>
+                    <td>-</td>
+                    <td>0.1</td>
+                    <td>±5%</td>
+                </tr>
+                <tr>
+                    <td>فضي</td>
+                    <td>-</td>
+                    <td>0.01</td>
+                    <td>±10%</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Resistor image -->
+  <div class="resistor-container">
+    <div class="wire"></div>
+    <div class="resistor-body">
+      <div class="color-band" id="band1"></div>
+      <div class="color-band" id="band2"></div>
+      <div class="color-band" id="band3"></div>
+      <div class="color-band" id="band4"></div>
+    </div>
+    <div class="wire"></div>
+  </div>
+
+  <!-- Color selectors -->
+  <div class="selection-container">
+    <select id="colorSelect1" class="color-select" onchange="setColor('band1', this.value)">
+      <option value="">Band 1</option>
+      <option value="#000000">Black</option>
+      <option value="#964B00">Brown</option>
+      <option value="#FF0000">Red</option>
+      <option value="#FFA500">Orange</option>
+      <option value="#FFFF00">Yellow</option>
+      <option value="#008000">Green</option>
+      <option value="#0000FF">Blue</option>
+      <option value="#800080">Violet</option>
+      <option value="#808080">Gray</option>
+      <option value="#FFFFFF">White</option>
+    </select>
+
+    <select id="colorSelect2" class="color-select" onchange="setColor('band2', this.value)">
+      <option value="">Band 2</option>
+      <option value="#000000">Black</option>
+      <option value="#964B00">Brown</option>
+      <option value="#FF0000">Red</option>
+      <option value="#FFA500">Orange</option>
+      <option value="#FFFF00">Yellow</option>
+      <option value="#008000">Green</option>
+      <option value="#0000FF">Blue</option>
+      <option value="#800080">Violet</option>
+      <option value="#808080">Gray</option>
+      <option value="#FFFFFF">White</option>
+    </select>
+
+    <select id="colorSelect3" class="color-select" onchange="setColor('band3', this.value)">
+      <option value="">Band 3</option>
+      <option value="#000000">Black</option>
+      <option value="#964B00">Brown</option>
+      <option value="#FF0000">Red</option>
+      <option value="#FFA500">Orange</option>
+      <option value="#FFFF00">Yellow</option>
+      <option value="#008000">Green</option>
+      <option value="#0000FF">Blue</option>
+      <option value="#800080">Violet</option>
+      <option value="#808080">Gray</option>
+      <option value="#FFFFFF">White</option>
+    </select>
+
+    <select id="colorSelect4" class="color-select" onchange="setColor('band4', this.value)">
+      <option value="">Band 4</option>
+      <option value="#000000">Black</option>
+      <option value="#964B00">Brown</option>
+      <option value="#FF0000">Red</option>
+      <option value="#FFA500">Orange</option>
+      <option value="#FFFF00">Yellow</option>
+      <option value="#008000">Green</option>
+      <option value="#0000FF">Blue</option>
+      <option value="#800080">Violet</option>
+      <option value="#808080">Gray</option>
+      <option value="#FFFFFF">White</option>
+    </select>
+  </div>
+
+  <script>
+    // Function to set the color of each band
+    function setColor(bandId, color) {
+      document.getElementById(bandId).style.backgroundColor = color;
+    }
+  </script>
+</body>
+
+</html>

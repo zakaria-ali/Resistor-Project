@@ -1,0 +1,48 @@
+    /* Container for resistor */
+    .resistor-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* Wire ends */
+    .wire {
+      width: 30px;
+      height: 5px;
+      background-color: #333;
+    }
+
+    /* Resistor body */
+    .resistor-body {
+      width: 80px;
+      height: 20px;
+      background-color: #e0be8f;
+      border-radius: 10px;
+      box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+      margin: 0 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5px;
+    }
+
+    /* Color bands */
+    .color-band {
+      width: 10px;
+      height: 100%;
+      background-color: transparent;
+      border-radius: 2px;
+    }
+
+    /* Selection container */
+    .selection-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    /* Color dropdowns */
+    .color-select {
+      margin: 0 5px;
+    }
