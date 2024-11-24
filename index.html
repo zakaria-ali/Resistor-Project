@@ -23,96 +23,163 @@
 
   <!-- The main -->
   <main>
-    <!-- Main Content Section -->
-    <section class="main-content">
-      <!-- Table Section -->
-        <table>
-          <thead>
-            <tr>
-              <th>اللون</th>
-              <th>رقم اللون</th>
-              <th>المضاعف</th>
-              <th>نسبة التفاوت</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>أسود</td>
-              <td>0</td>
-              <td>1</td>
-              <td>±1%</td>
-            </tr>
-            <tr>
-              <td>بني</td>
-              <td>1</td>
-              <td>10</td>
-              <td>±1%</td>
-            </tr>
-            <tr>
-              <td>أحمر</td>
-              <td>2</td>
-              <td>100</td>
-              <td>±2%</td>
-            </tr>
-            <tr>
-              <td>برتقالي</td>
-              <td>3</td>
-              <td>1000</td>
-              <td>±0.5%</td>
-            </tr>
-            <tr>
-              <td>أصفر</td>
-              <td>4</td>
-              <td>10000</td>
-              <td>±0.25%</td>
-            </tr>
-            <tr>
-              <td>أخضر</td>
-              <td>5</td>
-              <td>100000</td>
-              <td>±0.1%</td>
-            </tr>
-            <tr>
-              <td>أزرق</td>
-              <td>6</td>
-              <td>1000000</td>
-              <td>±0.05%</td>
-            </tr>
-            <tr>
-              <td>بنفسجي</td>
-              <td>7</td>
-              <td>10000000</td>
-              <td>±0.1%</td>
-            </tr>
-            <tr>
-              <td>رمادي</td>
-              <td>8</td>
-              <td>100000000</td>
-              <td>±0.05%</td>
-            </tr>
-            <tr>
-              <td>أبيض</td>
-              <td>9</td>
-              <td>1000000000</td>
-              <td>±0.01%</td>
-            </tr>
-            <tr>
-              <td>ذهبي</td>
-              <td>-</td>
-              <td>0.1</td>
-              <td>±5%</td>
-            </tr>
-            <tr>
-              <td>فضي</td>
-              <td>-</td>
-              <td>0.01</td>
-              <td>±10%</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Table Section -->
+    <section class="table-section">
+      <table>
+        <thead>
+          <tr>
+            <th>اللون</th>
+            <th>رقم اللون</th>
+            <th>المضاعف</th>
+            <th>نسبة التفاوت</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="black">
+            <td>أسود</td>
+            <td>0</td>
+            <td>1</td>
+            <td>±1%</td>
+          </tr>
+          <tr id="brown">
+            <td>بني</td>
+            <td>1</td>
+            <td>10</td>
+            <td>±1%</td>
+          </tr>
+          <tr id="red">
+            <td>أحمر</td>
+            <td>2</td>
+            <td>100</td>
+            <td>±2%</td>
+          </tr>
+          <tr id="orange">
+            <td>برتقالي</td>
+            <td>3</td>
+            <td>1000</td>
+            <td>±0.5%</td>
+          </tr>
+          <tr id="yellow">
+            <td>أصفر</td>
+            <td>4</td>
+            <td>10000</td>
+            <td>±0.25%</td>
+          </tr>
+          <tr id="green">
+            <td>أخضر</td>
+            <td>5</td>
+            <td>100000</td>
+            <td>±0.1%</td>
+          </tr>
+          <tr id="blue">
+            <td>أزرق</td>
+            <td>6</td>
+            <td>1000000</td>
+            <td>±0.05%</td>
+          </tr>
+          <tr id="violet">
+            <td>بنفسجي</td>
+            <td>7</td>
+            <td>10000000</td>
+            <td>±0.1%</td>
+          </tr>
+          <tr id="gray">
+            <td>رمادي</td>
+            <td>8</td>
+            <td>100000000</td>
+            <td>±0.05%</td>
+          </tr>
+          <tr id="white">
+            <td>أبيض</td>
+            <td>9</td>
+            <td>1000000000</td>
+            <td>±0.01%</td>
+          </tr>
+          <tr id="gold">
+            <td>ذهبي</td>
+            <td>-</td>
+            <td>0.1</td>
+            <td>±5%</td>
+          </tr>
+          <tr id="silver">
+            <td>فضي</td>
+            <td>-</td>
+            <td>0.01</td>
+            <td>±10%</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-      <!-- Results Section -->
-      <aside>
+    <!-- Input and Output Section -->
+    <section>
+      <!-- Input Part -->
+      <div class="input-part">
+        <!-- Color selectors Section-->
+        <div class="selection-container">
+          <label for="colorSelect1" class="colorSelect1">اللون الأول</label>
+          <select id="colorSelect1" class="color-select" onchange="setColor('band1', this.value)">
+            <option value=""></option>
+            <option class="color-option black" value="#000000">أسود</option>
+            <option class="color-option brown" value="#964B00">بني</option>
+            <option class="color-option red" value="#FF0000">أحمر</option>
+            <option class="color-option orange" value="#FFA500">برتقالي</option>
+            <option class="color-option yellow" value="#FFFF00">أصفر</option>
+            <option class="color-option green" value="#008000">أخضر</option>
+            <option class="color-option blue" value="#0000FF">أزرق</option>
+            <option class="color-option violet" value="#800080">بنفسجي</option>
+            <option class="color-option gray" value="#808080">رمادي</option>
+            <option class="color-option white" value="#FFFFFF">أبيض</option>
+          </select>
+
+          <label for="colorSelect2" class="colorSelect2">اللون الثاني</label>
+          <select id="colorSelect2" class="color-select" onchange="setColor('band2', this.value)">
+            <option value=""></option>
+            <option class="color-option black" value="#000000">أسود</option>
+            <option class="color-option brown" value="#964B00">بني</option>
+            <option class="color-option red" value="#FF0000">أحمر</option>
+            <option class="color-option orange" value="#FFA500">برتقالي</option>
+            <option class="color-option yellow" value="#FFFF00">أصفر</option>
+            <option class="color-option green" value="#008000">أخضر</option>
+            <option class="color-option blue" value="#0000FF">أزرق</option>
+            <option class="color-option violet" value="#800080">بنفسجي</option>
+            <option class="color-option gray" value="#808080">رمادي</option>
+            <option class="color-option white" value="#FFFFFF">أبيض</option>
+          </select>
+
+          <label for="colorSelect3" class="colorSelect3">اللون الثالث</label>
+          <select id="colorSelect3" class="color-select" onchange="setColor('band3', this.value)">
+            <option value=""></option>
+            <option class="color-option black" value="#000000">أسود</option>
+            <option class="color-option brown" value="#964B00">بني</option>
+            <option class="color-option red" value="#FF0000">أحمر</option>
+            <option class="color-option orange" value="#FFA500">برتقالي</option>
+            <option class="color-option yellow" value="#FFFF00">أصفر</option>
+            <option class="color-option green" value="#008000">أخضر</option>
+            <option class="color-option blue" value="#0000FF">أزرق</option>
+            <option class="color-option violet" value="#800080">بنفسجي</option>
+            <option class="color-option gray" value="#808080">رمادي</option>
+            <option class="color-option white" value="#FFFFFF">أبيض</option>
+          </select>
+
+          <label for="colorSelect4" class="colorSelect4"> (نسبة التفاوت) اللون الرابع</label>
+          <select id="colorSelect4" class="color-select" onchange="setColor('band4', this.value)">
+            <option value=""></option>
+            <option class="color-option black" value="#000000">أسود</option>
+            <option class="color-option brown" value="#964B00">بني</option>
+            <option class="color-option red" value="#FF0000">أحمر</option>
+            <option class="color-option orange" value="#FFA500">برتقالي</option>
+            <option class="color-option yellow" value="#FFFF00">أصفر</option>
+            <option class="color-option green" value="#008000">أخضر</option>
+            <option class="color-option blue" value="#0000FF">أزرق</option>
+            <option class="color-option violet" value="#800080">بنفسجي</option>
+            <option class="color-option gray" value="#808080">رمادي</option>
+            <option class="color-option white" value="#FFFFFF">أبيض</option>
+            <option class="color-option gold" value="#FFD700">ذهبي</option>
+            <option class="color-option silver" value="#C0C0C0">فضي </option>
+          </select>
+        </div>
+
         <!-- Resistor image -->
         <div class="resistor-container">
           <div class="wire"></div>
@@ -124,120 +191,21 @@
           </div>
           <div class="wire"></div>
         </div>
+      </div>
 
-        <!-- The result -->
-        <div class="result">
-          <div class="the-number"></div>
-          <div class="multiplier"></div>
-          <div class="resistor-value"></div>
-          <div class="min-value"></div>
-          <div class="max-value"></div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- Color selectors Section-->
-    <section>
-      <div class="selection-container">
-        <label for="colorSelect1" class="colorSelect1">اللون الأول</label>
-        <select id="colorSelect1" class="color-select" onchange="setColor('band1', this.value)">
-          <option value=""></option>
-          <option class="color-option black" value="#000000">أسود</option>
-          <option class="color-option brown" value="#964B00">بني</option>
-          <option class="color-option red" value="#FF0000">أحمر</option>
-          <option class="color-option orange" value="#FFA500">برتقالي</option>
-          <option class="color-option yellow" value="#FFFF00">أصفر</option>
-          <option class="color-option green" value="#008000">أخضر</option>
-          <option class="color-option blue" value="#0000FF">أزرق</option>
-          <option class="color-option violet" value="#800080">بنفسجي</option>
-          <option class="color-option gray" value="#808080">رمادي</option>
-          <option class="color-option white" value="#FFFFFF">أبيض</option>
-        </select>
-
-        <label for="colorSelect2" class="colorSelect2">اللون الثاني</label>
-        <select id="colorSelect2" class="color-select" onchange="setColor('band2', this.value)">
-          <option value=""></option>
-          <option class="color-option black" value="#000000">أسود</option>
-          <option class="color-option brown" value="#964B00">بني</option>
-          <option class="color-option red" value="#FF0000">أحمر</option>
-          <option class="color-option orange" value="#FFA500">برتقالي</option>
-          <option class="color-option yellow" value="#FFFF00">أصفر</option>
-          <option class="color-option green" value="#008000">أخضر</option>
-          <option class="color-option blue" value="#0000FF">أزرق</option>
-          <option class="color-option violet" value="#800080">بنفسجي</option>
-          <option class="color-option gray" value="#808080">رمادي</option>
-          <option class="color-option white" value="#FFFFFF">أبيض</option>
-        </select>
-
-        <label for="colorSelect3" class="colorSelect3">اللون الثالث</label>
-        <select id="colorSelect3" class="color-select" onchange="setColor('band3', this.value)">
-          <option value=""></option>
-          <option class="color-option black" value="#000000">أسود</option>
-          <option class="color-option brown" value="#964B00">بني</option>
-          <option class="color-option red" value="#FF0000">أحمر</option>
-          <option class="color-option orange" value="#FFA500">برتقالي</option>
-          <option class="color-option yellow" value="#FFFF00">أصفر</option>
-          <option class="color-option green" value="#008000">أخضر</option>
-          <option class="color-option blue" value="#0000FF">أزرق</option>
-          <option class="color-option violet" value="#800080">بنفسجي</option>
-          <option class="color-option gray" value="#808080">رمادي</option>
-          <option class="color-option white" value="#FFFFFF">أبيض</option>
-        </select>
-
-        <label for="colorSelect4" class="colorSelect4"> (نسبة التفاوت) اللون الرابع</label>
-        <select id="colorSelect4" class="color-select" onchange="setColor('band4', this.value)">
-          <option value=""></option>
-          <option class="color-option black" value="#000000">أسود</option>
-          <option class="color-option brown" value="#964B00">بني</option>
-          <option class="color-option red" value="#FF0000">أحمر</option>
-          <option class="color-option orange" value="#FFA500">برتقالي</option>
-          <option class="color-option yellow" value="#FFFF00">أصفر</option>
-          <option class="color-option green" value="#008000">أخضر</option>
-          <option class="color-option blue" value="#0000FF">أزرق</option>
-          <option class="color-option violet" value="#800080">بنفسجي</option>
-          <option class="color-option gray" value="#808080">رمادي</option>
-          <option class="color-option white" value="#FFFFFF">أبيض</option>
-          <option class="color-option gold" value="#FFD700">ذهبي</option>
-          <option class="color-option silver" value="#C0C0C0">فضي </option>
-        </select>
+      <!-- The result 'Output Part' -->
+      <div class="result">
+        <p class="the-number"></p>
+        <p class="multiplier"></p>
+        <p class="resistor-value"></p>
+        <p class="min-value"></p>
+        <p class="max-value"></p>
       </div>
     </section>
   </main>
 
-  <script>
-    // Function to set the color of each band
-    function setColor(bandId, color) {
-      document.getElementById(bandId).style.backgroundColor = color;
-    }
-    function updateMarquee() {
-      const content = [
-        'أهلاً وسهلاً بكم',
-        'نرحب بكم في أفضل برنامج تعليمي محوسب',
-        'نرحب برواد العلم والتعلم',
-        'احسب قيمة المقاومة دون الحاجه الى جهاز الملتيميتر',
-        'برنامج تعليمي لحساب قيمة المقاومة باستخدام الالوان'
-      ];
+  <script src="script.js"></script>
 
-      let key = 0;
-      const marquee = document.querySelector('.marquee');
-
-      marquee.addEventListener('animationstart', () => {
-        key = 0;
-        marquee.textContent = content[key];
-      });
-
-      marquee.addEventListener('animationiteration', () => {
-        key++;
-        if (typeof content[key] === 'undefined') key = 0;
-        marquee.textContent = content[key];
-      });
-
-      marquee.classList.remove('paused');
-    }
-
-    // Call the function when the page is loaded
-    updateMarquee();
-  </script>
 </body>
 
 </html>
