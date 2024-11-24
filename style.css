@@ -53,23 +53,25 @@ header img {
   }
 }
 
+/* Main Style */
 main {
+  display: flex;
+  justify-content: space-between;
   padding: 1rem;
 }
 
-.main-content {
-  display: flex;
-  justify-content: space-between;
-}
 
 /* Table Style */
+.table-section {
+  order: 1;
+}
+
 table {
   background: #f5f5f5;
   font-size: 12px;
   line-height: 24px;
   width: 500px;
   text-align: center;
-  order: 1;
 }
 
 th {
@@ -85,26 +87,6 @@ th {
   position: relative;
 }
 
-th:after {
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .08));
-  content: '';
-  display: block;
-  height: 25%;
-  left: 0;
-  margin: 1px 0 0 0;
-  position: absolute;
-  top: 25%;
-  width: 100%;
-}
-
-th:first-child {
-  border-left: 1px solid #777;
-  box-shadow: inset 1px 1px 0 #999;
-}
-
-th:last-child {
-  box-shadow: inset -1px 1px 0 #999;
-}
 
 td {
   border-right: 1px solid #fff;
@@ -116,39 +98,28 @@ td {
   transition: all 300ms;
 }
 
-td:first-child {
-  box-shadow: inset 1px 0 0 #fff;
-}
-
-td:last-child {
-  border-right: 1px solid #e8e8e8;
-  box-shadow: inset -1px 0 0 #fff;
-}
 
 tr:nth-child(odd) td {
   background: #f1f1f1;
 }
 
-tr:last-of-type td {
-  box-shadow: inset 0 -1px 0 #fff;
-}
 
-tr:last-of-type td:first-child {
-  box-shadow: inset 1px -1px 0 #fff;
-}
-
-tr:last-of-type td:last-child {
-  box-shadow: inset -1px -1px 0 #fff;
-}
-
-tbody:hover td {
+tbody:hover td,
+.table-trans {
   color: transparent;
   text-shadow: 0 0 3px #aaa;
 }
 
-tbody:hover tr:hover td {
+tbody:hover tr:hover td,
+.selected-color {
   color: #444;
   text-shadow: 0 1px 0 #fff;
+}
+
+/* Input Part Style */
+.input-part {
+  display: flex;
+  align-items: baseline;
 }
 
 /* Container for resistor */
@@ -157,6 +128,7 @@ tbody:hover tr:hover td {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  order: -1;
 }
 
 /* Wire ends */
