@@ -4,6 +4,8 @@ const multiplier = document.querySelector(".multiplier");
 const resistorValue = document.querySelector(".resistor-value");
 const minValue = document.querySelector(".min-value");
 const maxValue = document.querySelector(".max-value");
+let theNumberValue;
+let theResistorValue;
 
 function getColorName(colorVal) {
   const colorMap = {
@@ -28,13 +30,67 @@ function getColorName(colorVal) {
 function setColor(bandId, color) {
   document.getElementById(bandId).style.backgroundColor = color;
   myTable.classList.add('table-trans');
-  let colorName = getColorName(color);
-  document.getElementById(colorName).classList.add('selected-color');
-  if(bandId === 'band1'){
 
-    theNumber.innerHTML=``
+  // Get the color properties
+  const colorProps = getColorName(color);
+
+  if (!colorProps.name) {
+    console.error("Invalid color value");
+    return;
+  }
+
+   // Update the selected color
+  document.getElementById(colorProps.name).classList.add("selected-color");
+
+  // Update the corresponding band value
+  if (bandId === "band1") {
+    theNumber.innerHTML = `الرقم = _ ${colorProps.number}`;
+    theNumberValue = colorProps.number * 10;
+  } else if (bandId === "band2") {
+    theNumberValue += colorProps.number;
+    theNumber.innerHTML = `الرقم = ${theNumberValue}`;
+  } else if (bandId === "band3") {
+    theResistorValue = theNumberValue * colorProps.multiplier;
+    multiplier.innerHTML = `المضاعف = ${colorProps.multiplier}`;
+    resistorValue.innerHTML = `${theResistorValue}Ω = ${colorProps.multiplier} * ${theNumberValue} = قيمة المقاومة = الرقم * المضاعف `;
+  } else if (bandId === "band4") {
+    minValue.innerHTML = `${theResistorValue - theResistorValue * colorProps.varianceRatio }Ω = ${colorProps.varianceRatio} * ${theResistorValue} - ${theResistorValue} = الحد الادنى للمقاومة = قيمة المقاومة - قيمة * (نسبة الخطأ)`;
+    maxValue.innerHTML = `${theResistorValue + theResistorValue * colorProps.varianceRatio }Ω = ${colorProps.varianceRatio} * ${theResistorValue} + ${theResistorValue} = الحد الاعلى للمقاومة = قيمة المقاومة + قيمة * (نسبة الخطأ)`;
+
   }
 }
+
+function resetValues() {
+  // Reset resistor band colors
+  document.getElementById("band1").style.backgroundColor = "";
+  document.getElementById("band2").style.backgroundColor = "";
+  document.getElementById("band3").style.backgroundColor = "";
+  document.getElementById("band4").style.backgroundColor = "";
+
+  // Remove selected class from table rows
+  document.querySelectorAll("tr").forEach(row => row.classList.remove("selected-color"));
+
+  // Clear displayed values
+  theNumber.innerHTML = "";
+  multiplier.innerHTML = "";
+  resistorValue.innerHTML = "";
+  minValue.innerHTML = "";
+  maxValue.innerHTML = "";
+
+  // Reset internal variables
+  theNumberValue = undefined;
+  theResistorValue = undefined;
+
+  // Reset dropdowns
+  document.getElementById("colorSelect1").value = "";
+  document.getElementById("colorSelect2").value = "";
+  document.getElementById("colorSelect3").value = "";
+  document.getElementById("colorSelect4").value = "";
+
+  // Remove table transition class
+  myTable.classList.remove('table-trans');
+}
+
 
 function updateMarquee() {
   const content = [
