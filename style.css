@@ -1,0 +1,353 @@
+/* General Style */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Style */
+header {
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0px 7px 17px -2px rgba(0, 0, 0, 0.3);
+}
+
+header img {
+    width: 60px;
+}
+
+/* Marquee Style */
+.marqueeContainer {
+    width: 100vw;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+}
+
+.marquee {
+    font-size: 2rem;
+    padding-left: 80vw;
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+    animation-play-state: running;
+}
+
+.marquee:hover {
+    animation-play-state: paused;
+    cursor: default;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Main Style */
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+
+/* Table Style */
+.table-section {
+    order: 1;
+}
+
+table {
+    background: #f5f5f5;
+    font-size: 12px;
+    line-height: 18.5px;
+    width: 500px;
+    text-align: center;
+    transition: color 0.5s ease;
+}
+
+th {
+    background: linear-gradient(#777, #444);
+    border-left: 1px solid #555;
+    border-right: 1px solid #777;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #333;
+    box-shadow: inset 0 1px 0 #999;
+    color: #fff;
+    font-weight: bold;
+    padding: 2px 10px;
+    position: relative;
+}
+
+
+td {
+    border-right: 1px solid #fff;
+    border-left: 1px solid #e8e8e8;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 5px 15px;
+    position: relative;
+    transition: all 300ms;
+}
+
+
+tr:nth-child(odd) td {
+    background: #f1f1f1;
+}
+
+
+tbody:hover td,
+.table-trans {
+    color: transparent;
+    text-shadow: 0 0 3px #aaa;
+}
+
+tbody:hover tr:hover td,
+.selected-color {
+    color: #444;
+    text-shadow: 0 1px 0 #fff;
+}
+
+
+/* Container for resistor */
+.resistor-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    order: -1;
+}
+
+/* Wire ends */
+.wire {
+    width: 30px;
+    height: 5px;
+    background-color: #333;
+}
+
+/* Resistor body */
+.resistor-body {
+    width: 80px;
+    height: 20px;
+    background-color: #e0be8f;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+/* Color bands */
+.color-band {
+    width: 8px;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 2px;
+}
+
+#band4 {
+    margin-left: 15px;
+}
+
+/* Selection container */
+.selection-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* Order the Slections */
+.colorSelect1 {
+    order: 8;
+}
+
+#colorSelect1 {
+    order: 7;
+}
+
+.colorSelect2 {
+    order: 6;
+}
+
+#colorSelect2 {
+    order: 5;
+}
+
+.colorSelect3 {
+    order: 4;
+}
+
+#colorSelect3 {
+    order: 3;
+}
+
+.colorSelect4 {
+    order: 2;
+}
+
+#colorSelect4 {
+    order: 1;
+}
+
+select {
+    margin-left: 1.3rem;
+}
+
+.selection-container label {
+    margin-left: 0.2rem;
+}
+
+/* Style to display the color in options */
+.color-option {
+    padding: 5px;
+    color: #ffffff;
+}
+
+.black {
+    background-color: #000000;
+}
+
+.brown {
+    background-color: #964B00;
+}
+
+.red {
+    background-color: #FF0000;
+}
+
+.orange {
+    background-color: #FFA500;
+    color: #000;
+}
+
+.yellow {
+    background-color: #FFFF00;
+    color: #000;
+}
+
+.green {
+    background-color: #008000;
+}
+
+.blue {
+    background-color: #0000FF;
+}
+
+.violet {
+    background-color: #800080;
+}
+
+.gray {
+    background-color: #808080;
+}
+
+.white {
+    background-color: #FFFFFF;
+    color: #000;
+}
+
+.gold {
+    background-color: #FFD700;
+    color: #000;
+}
+
+.silver {
+    background-color: #C0C0C0;
+    color: #000;
+}
+
+.no-color {
+    color: #000;
+}
+
+.result,
+.steps {
+    margin-top: 1.5rem;
+    text-align: right;
+}
+
+.result p,
+.steps p {
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.step1_2,
+.step2_2,
+.step3_2,
+.step4_2 {
+    transition-delay: 2s !important;
+}
+
+.step3_3,
+.step4_3 {
+    transition-delay: 6s !important;
+}
+
+.the-number,
+.min-value {
+    transition-delay: 4s !important;
+}
+
+.multiplier {
+    transition-delay: 4s !important;
+}
+
+.resistor-value,
+.max-value {
+    transition-delay: 8s !important;
+}
+
+.result p.visible,
+.steps p.visible {
+    opacity: 1;
+}
+
+
+.color-option {
+    text-align: center;
+}
+
+.color-select:hover {
+    border-color: #0000FF;
+}
+
+/* Footer Style */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding-top: 1rem;
+    margin-top: 2rem;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+footer p:last-child {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    opacity: 0.7;
+}
+
+footer img {
+    width: 60px;
+}
